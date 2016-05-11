@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="androidNative">
+<property file="build.properties"/>
+<property name="loadDir" value="${WS_basedir}" />
+<property name="project.path" value="${loadDir}/${wlProject}" />
+<property name="output.path" value="${loadDir}/${wlProject}" />
+<property name="mobilePlatform" value="android" />
+<property name="configuration" value="debug" />
+<property name="wlAppDir1" value="${loadDir}/${wlProject}/apps/${wlApp1}" />
+<property name="androidCMD" value="${androidSDKPath}/tools/android.bat" />
+<property name="androidCMDlog" value="${output.path}/androidCMD.log" />
+<property name="wlAdapter1" value="Testadp" />
+
+
+ <taskdef resource="com/worklight/ant/defaults.properties">
+  <classpath>
+	<!-- <pathelement location="/opt/IBM/Worklight/WorklightServer/worklight-ant-builder.jar"/> --> 
+	<pathelement location="${WLantBuilderjar}"/>
+  </classpath>
+</taskdef>
+
+<!--  below target "wlappcreation" is used to creata wlapp ile for worlight under output-folder -->
+ <target name="wlappcreation">
+    <app-builder
+        worklightserverhost="${WLserverhost}"
+        applicationFolder="${WS_basedir}/${wlProject}/apps/${wlApp1}/"
+        nativeProjectPrefix="${wlProject}"
+        outputFolder="output-folder"/>
+        
+        <adapter-builder
+        folder="${WS_basedir}/${wlProject}/adapters/${wlAdapter1}"
+        destinationfolder="output-folder/${wlProject}" />
+</target>
+
+<target name="androidNative" depends="wlappcreation">
+<exec dir="${wlAppDir1}/${mobilePlatform}/native"
+        executable="${androidCMD}"
+        failonerror="true"
+        resultproperty="androidCMDResult"
+        output="${androidCMDlog}">
+      <arg line="${mobilePlatform} update project --target ${androidTarget} -p ." />
+    </exec>
+
+<subant target="${configuration}" buildpath="${wlAppDir1}/${mobilePlatform}/native" />
+
+</target>
+
+</project>

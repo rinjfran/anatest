@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="wlappdeploy">
+
+<property file="build.properties"/>
+
+<echo> wlappfolder : ${wlappfolder} </echo>
+<echo> WLantDeployerjar: ${WLantDeployerjar} </echo>
+
+<taskdef resource="com/worklight/ant/deployers/antlib.xml">
+    <classpath>
+      <pathelement location="${WLantDeployerjar}"/>
+    </classpath>
+  </taskdef>
+  <target name="wlappdeploy">
+    <wladm url="http://infbz1161.cloud.dst.ibm.com:9080/worklightadmin" user="admin" password="admin" secure="false">
+        <deploy-app runtime="worklight" file="${wlappfolder}/anaTestApp-all.wlapp"/>
+        <deploy-adapter runtime="worklight" file="${wlappfolder}/anaTestApp/Testadp.adapter"/>
+    </wladm>
+  </target>
+  </project>
