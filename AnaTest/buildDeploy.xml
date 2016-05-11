@@ -13,8 +13,8 @@
   </taskdef>
   <target name="wlappdeploy">
     <wladm url="http://infbz1161.cloud.dst.ibm.com:9080/worklightadmin" user="admin" password="admin" secure="false">
-        <deploy-app runtime="worklight" file="${wlappfolder}/anaTestApp-all.wlapp"/>
-        <deploy-adapter runtime="worklight" file="${wlappfolder}/AnaTest/Testadp.adapter"/>
+        <deploy-app runtime="CorpCommunicator" file="${wlappfolder}/anaTestApp-all.wlapp"/>
+        <deploy-adapter runtime="CorpCommunicator" file="${wlappfolder}/AnaTest/Testadp.adapter"/>
     </wladm>
   </target>
   </project>
