@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="PureMeapAntDeployTask" basedir="." default="upload.App">
 
-        <property name="install.dir" value="/Worklight" />
+        <!--<property name="install.dir" value="/opt/IBM/Worklight" />-->
   <property name="workspace.root" value="apps/anaTestApp/android/native/bin" />
 
 <!-- Server Properties -->
