@@ -6,7 +6,7 @@
 
 <!-- Server Properties -->
   <property name="server.path" value="http://infbz1161.cloud.dst.ibm.com:9080/" />
-        <property name="context.path" value="ApplicationCenter" />
+        <property name="context.path" value="/opt/IBM/Worklight/ApplicationCenter" />
         <property name="upload.file" value="apps/anaTestApp/android/native/bin/anaTestApp-debug.apk" />
         <property name="force" value="true" />
 
@@ -14,7 +14,7 @@
   <property name="login.user" value="admin" />
   <property name="login.pass" value="admin" />
   <path id="classpath.run">
-    <fileset dir="/Worklight/ApplicationCenter/tools">
+    <fileset dir="/opt/IBM/Worklight/ApplicationCenter/tools">
       <include name="applicationcenterdeploytool.jar" />
       <include name="json4j.jar"/>
           </fileset>
