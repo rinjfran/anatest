@@ -6,7 +6,7 @@
 
 <!-- Server Properties -->
   <property name="server.path" value="http://infbz1161.cloud.dst.ibm.com:9080/" />
-        <property name="context.path" value="applicationcenter" />
+        <property name="context.path" value="ApplicationCenter" />
         <property name="upload.file" value="apps/anaTestApp/android/native/bin/anaTestApp-debug.apk" />
         <property name="force" value="true" />
 
